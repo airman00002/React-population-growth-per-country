@@ -20,17 +20,18 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-// สร้างข้อมูลตัวอย่าง
+
+// create example data
 const yearData = {
   labels: Array.from({ length: 72 }, (_, i) => 1950 + i), // ปี 1950 ถึง 2021
   datasets: [
     {
       label: "Year", // ชื่อกราฟ
-      data: Array(72).fill(0), // ข้อมูลประชากรเป็น 0 เพื่อไม่แสดงกราฟเส้น
-      borderColor: "transparent", // ทำให้เส้นโปร่งใส
-      backgroundColor: "transparent", // ทำให้พื้นหลังโปร่งใส
-      pointBorderColor: "transparent", // ทำให้จุดโปร่งใส
-      pointBackgroundColor: "transparent", // ทำให้จุดโปร่งใส
+      data: Array(72).fill(0), // ไม่แสดงกราฟเส้น
+      borderColor: "transparent", // โปร่งใส
+      backgroundColor: "transparent", //โปร่งใส
+      pointBorderColor: "transparent", // โปร่งใส
+      pointBackgroundColor: "transparent", // โปร่งใส
     },
   ],
 };
@@ -38,10 +39,10 @@ const yearData = {
 const yearOptions = {
   plugins: {
     legend: {
-      display: false, // ไม่แสดง legend
+      display: false, 
     },
     tooltip: {
-      enabled: false, // ไม่แสดง tooltip
+      enabled: false, 
     },
   },
   scales: {
@@ -51,18 +52,18 @@ const yearOptions = {
         text: "Year",
       },
       grid: {
-        display: false, // ไม่แสดงเส้น grid บนแกน X
+        display: false,
       },
       ticks: {
         callback: function (val, index) {
           const year = this.getLabelForValue(val);
-          return year % 4 === 0 ? year : ""; // แสดงปีที่หาร 4 ลงตัว
+          return year % 4 === 0 ? year : "";
         },
       },
       min: 1950, // เริ่มต้นที่ปี 1950
     },
     y: {
-      display: false, // ไม่แสดงแกน Y
+      display: false,
     },
   },
 };

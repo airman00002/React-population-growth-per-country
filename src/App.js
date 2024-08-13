@@ -15,7 +15,7 @@ function App() {
         {/* Display Chart and All Data */}
         <PopulationGrowthPerCountryChart />
 
-        <MyLineChart />
+        {/* <MyLineChart /> */}
     
       </header>
     </div>

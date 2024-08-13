@@ -7,7 +7,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels'; // นำเข้า p
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale,
 } from "chart.js";
 import { fetchPopulationData } from "../services/populationService";
+import MyLineChart from "./MyLineChart";
+import { ClipLoader } from "react-spinners"; // นำเข้า loader ที่ต้องการใช้
 
+// 1.Register necessary components for ChartJS
 ChartJS.register( Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ChartDataLabels // เพิ่มเข้าไปที่นี่  
 );
 
@@ -16,6 +19,7 @@ function PopulationGrowthPerCountryChart() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
+  // 2.Fetch population data on component mount
   useEffect(() => {
     fetchPopulationData()
       .then((response) => {
@@ -29,6 +33,7 @@ function PopulationGrowthPerCountryChart() {
       });
   }, []);
 
+  // 3. Update current year in an interval
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentYear((prevYear) => {
@@ -38,27 +43,35 @@ function PopulationGrowthPerCountryChart() {
       });
     }, 100);
 
-    return () => clearInterval(interval); // ทำความสะอาดเมื่อคอมโพเนนต์ถูกยกเลิก
+    return () => clearInterval(interval); // clear เมื่อคอมโพเนนต์ถูกยกเลิก
   }, []);
 
-  // กรองข้อมูลสำหรับปีปัจจุบันและเรียงลำดับ
+  // 4.Filter and sort data for the current year
   const filteredData = data
     .filter((item) => item.year === currentYear)
     .sort((a, b) => b.totalPopulation - a.totalPopulation)
     .slice(0, 12);
 
+  // 5.Calculate total population for the current year
   const totalPopulationForYear = data
     .filter((item) => item.year === currentYear) // กรองข้อมูลตามปี
     .reduce((sum, item) => sum + item.totalPopulation, 0); // คำนวณผลรวม
 
-  if (loading) return <h1>Loading...</h1>;
+    if (loading) {
+      return (
+        <div className="loading-container">
+          <ClipLoader color={"#3498db"} size={300}  speedMultiplier={0.5}/>
+        </div>
+      );
+    }
   if (!data || data.length === 0) return <h1>No data available</h1>;
 
 
+  // 6.Calculate pointer position for the year timeline
   const totalYears = 2021 - 1950;
   const pointerPosition = ((currentYear - 1950) / totalYears) * 100; // เปลี่ยนเป็นเปอร์เซ็นต์
   
-  //* 1.Chart Data
+  //* 7.Chart data configuration
   const chartData = {
     // แกน X
     labels: filteredData.map((item) => item.countryName),
@@ -74,7 +87,7 @@ function PopulationGrowthPerCountryChart() {
     ],
   };
 
-  //* 2.Chart Options
+  //* 8.Chart options configuration
   const chartOptions = {
     indexAxis: "y",
     scales: {
@@ -133,7 +146,11 @@ function PopulationGrowthPerCountryChart() {
           </div>
         </div>
       </div>
+
+       <MyLineChart />
     </div>
+
+    
   );
 }
 
