@@ -1,0 +1,126 @@
+.summary {
+  position: absolute;
+  /* bottom: 350px; */
+  /* right: 50px; */
+  text-align: center;
+  background-color: aqua;
+  width: '100%';
+  height: '100%';
+}
+
+.setFontSizeOfYear {
+  font-size: 60px;
+  color: grey;
+}
+
+.setFontSizeOfTotal {
+  font-size: 30px;
+  color: grey;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* ปรับให้เหมาะสม */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  /* ปรับให้เหมาะสม */
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pointer {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid grey;
+  /* ลูกศรชี้ลง */
+  position: absolute;
+  top: 0;
+  /* ตั้งการจัดวางเพื่อให้ลูกศรอยู่ที่ด้านบน */
+  transform: translateY(0);
+  z-index: 1;
+  /* ให้แน่ใจว่าลูกศรอยู่เหนือกราฟ */
+}
+
+.myBarPopulaiton {
+  width: 100;
+  height: 100;
+  position: static;
+  bottom: 500px;
+  background-color: none;
+
+}
+
+.lineChartTopUp {
+  position: absolute;
+  bottom: 750px;
+  width: 100%;
+  height: 100%;
+}
+
+.chart-container {
+  /* width: 100%; */
+  /* height: 0vh; */
+  position: relative;
+  /* background-color: aqua; */
+}
+
+.year-total-container {
+  position: absolute;
+  width: 30%;
+  /* height: 100%;  */
+  left: 80%;
+  top: 600px;
+  transform: translate(-50%, -50%);
+  text-align: right;
+  /* background-color: blue; */
+}
+
+.flag {  
+  width: 20px; /* ขนาดของธง */  
+  height: 20px;  
+  border-radius: 50%; /* ทำให้เป็นรูปกลม */  
+  display: inline-block;  
+  margin-right: 5px; /* ระยะห่างระหว่างธงและตัวเลข */  
+}  
+
+@media (max-width: 768px) {
+  .year-total-container {
+    top: 50%;
+  }
+  .lineChartTopUp {
+    position: absolute;
+    bottom: 500px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .lineChartTopUp {
+    position: absolute;
+    bottom: 500px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .year-total-container {
+    top: 20%;
+  }
+}

@@ -1,22 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PopulationGrowthPerCountryChart from "./components/PopulationGrowthPerCountryChart";
+import RegionLayout from "./components/RejionLayout";
+import MyLineChart from "./components/MyLineChart";
 
 function App() {
   return (
-    <div className="App">
+    <div style={{padding: "30px"}} className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 >Population growth per country, 1950 to 2021</h1>
+        <h2>Click in the legend below to filter by continent 👇</h2>
+
+        {/* Display region and color */}
+        <RegionLayout />
+        {/* Display Chart and All Data */}
+        <PopulationGrowthPerCountryChart />
+
+        <MyLineChart />
+    
       </header>
     </div>
   );
