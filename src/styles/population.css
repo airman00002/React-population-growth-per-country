@@ -105,6 +105,14 @@
   width: 100%;
   height: 100%;
 }
+@media (min-width: 1520px) {
+  .lineChartTopUp {
+    position: absolute;
+    bottom: 850px;
+    width: 100%;
+    height: 100%;
+  }
+}
 
 @media (max-width: 1510px) {
   .lineChartTopUp {

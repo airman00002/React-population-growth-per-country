@@ -4,11 +4,10 @@ import "./../styles/population.css";
 import regionColors from "../constant/defaultColor.js";
 import getSymbol from "../constant/symbol.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels'; // นำเข้า plugin
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale,
-} from "chart.js";
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale} from "chart.js";
 import { fetchPopulationData } from "../services/populationService";
 import MyLineChart from "./MyLineChart";
-import { ClipLoader } from "react-spinners"; // นำเข้า loader ที่ต้องการใช้
+import { ClipLoader } from "react-spinners";
 
 // 1.Register necessary components for ChartJS
 ChartJS.register( Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ChartDataLabels // เพิ่มเข้าไปที่นี่  

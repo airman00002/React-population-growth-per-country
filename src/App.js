@@ -1,7 +1,6 @@
 import React from "react";
 import PopulationGrowthPerCountryChart from "./components/PopulationGrowthPerCountryChart";
 import RegionLayout from "./components/RejionLayout";
-import MyLineChart from "./components/MyLineChart";
 
 function App() {
   return (
@@ -14,8 +13,6 @@ function App() {
         <RegionLayout />
         {/* Display Chart and All Data */}
         <PopulationGrowthPerCountryChart />
-
-        {/* <MyLineChart /> */}
     
       </header>
     </div>
