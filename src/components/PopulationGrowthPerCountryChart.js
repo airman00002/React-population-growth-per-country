@@ -40,7 +40,7 @@ function PopulationGrowthPerCountryChart() {
         if (prevYear >= 2021) return 1950;
         return prevYear + 1;
       });
-    }, 100);
+    }, 300);
 
     return () => clearInterval(interval); // clear เมื่อคอมโพเนนต์ถูกยกเลิก
   }, []);
