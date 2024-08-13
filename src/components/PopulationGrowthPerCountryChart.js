@@ -22,7 +22,6 @@ function PopulationGrowthPerCountryChart() {
   useEffect(() => {
     fetchPopulationData()
       .then((response) => {
-        console.log(response);
         setData(response);
         setLoading(false);
       })
