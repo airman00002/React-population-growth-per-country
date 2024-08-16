@@ -70,11 +70,11 @@ const yearOptions = {
 
 function MyLineChart() {
   return (
-    <div style={{ width: '100%', height: '100vh', position: 'relative'}}>
+    // <div className="box-myChart">
       <div className="lineChartTopUp">
         <Bar data={yearData} options={yearOptions} />
       </div>
-    </div>
+    // </div>
   );
 }
 

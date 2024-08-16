@@ -1,7 +1,5 @@
 .summary {
   position: absolute;
-  /* bottom: 350px; */
-  /* right: 50px; */
   text-align: center;
   background-color: aqua;
   width: '100%';
@@ -16,17 +14,6 @@
 .setFontSizeOfTotal {
   font-size: 30px;
   color: grey;
-}
-
-.timeline {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  /* ปรับให้เหมาะสม */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .timeline {
@@ -65,11 +52,19 @@
 }
 
 
-.chart-container {
-  /* width: 100%; */
-  /* height: 0vh; */
+.box-1 {
+  width: 100%;
+  height: 100vh;
   position: relative;
   /* background-color: aqua; */
+}
+
+.box-2 {
+  width: 100%;
+  height: 10%;
+  /* overflow: hidden; */
+  position: relative;
+  /* background-color: gainsboro; */
 }
 
 .year-total-container {
@@ -83,67 +78,141 @@
   /* background-color: blue; */
 }
 
-.flag {  
-  width: 20px; /* ขนาดของธง */  
-  height: 20px;  
-  border-radius: 50%; /* ทำให้เป็นรูปกลม */  
-  display: inline-block;  
-  margin-right: 5px; /* ระยะห่างระหว่างธงและตัวเลข */  
-}  
+.box-myChart {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+}
+
+.lineChartTopUp {
+  position: absolute;
+  bottom: -180px;
+  width: 100%;
+  height: 100vh;
+  /* background-color: rgb(191, 142, 8); */
+}
+
+.flag {
+  width: 20px;
+  /* ขนาดของธง */
+  height: 20px;
+  border-radius: 50%;
+  /* ทำให้เป็นรูปกลม */
+  display: inline-block;
+  margin-right: 5px;
+  /* ระยะห่างระหว่างธงและตัวเลข */
+}
 
 .loading-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
-  background-color: none; /* สีพื้นหลังเบาๆ */
+  background-color: none;
+  /* สีพื้นหลังเบาๆ */
 }
 
-.lineChartTopUp {
-  position: absolute;
-  bottom: 750px;
-  width: 100%;
-  height: 100%;
-}
+
+
 @media (min-width: 1520px) {
   .lineChartTopUp {
-    position: absolute;
-    bottom: 850px;
-    width: 100%;
-    height: 100%;
+    /* position: absolute; */
+    bottom: -110px;
+
   }
 }
 
-@media (max-width: 1510px) {
+@media (max-width: 1300px) {
   .lineChartTopUp {
-    position: absolute;
-    bottom: 700px;
-    width: 100%;
-    height: 100%;
+    bottom: -230px;
   }
+
+}
+@media (max-width: 1200px) {
+  .year-total-container {
+    top: 400px;
+  }
+
+  .setFontSizeOfYear {
+    font-size: 50px;
+    color: grey;
+  }
+
+  .setFontSizeOfTotal {
+    font-size: 20px;
+    color: grey;
+  }
+  .lineChartTopUp {
+    bottom: -240px;
+  }
+
 }
 
+
+/* Media query สำหรับ iPad Pro 11 นิ้ว (แนวตั้ง) */
+@media only screen and (min-width: 834px) and (max-width: 1194px) and (orientation: portrait) {
+  .box-1 {
+    /* background-color: yellow; */
+    height: 35vh;
+  }
+
+  .year-total-container {
+    top: 350px;
+  }
+  .lineChartTopUp {
+    bottom: -930px;
+
+    /* background-color: rgb(227, 220, 201); */
+  }
+  
+
+}
+
+@media (max-width: 950px) {
+
+  .box-1 {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    /* background-color: greenyellow; */
+  }
+
+  .year-total-container {
+    top: 250px;
+  }
+  .lineChartTopUp {
+    bottom: -370px;
+  }
+  
+}
 
 @media (max-width: 768px) {
-  .year-total-container {
-    top: 50%;
-  }
-  .lineChartTopUp {
-    position: absolute;
-    bottom: 500px;
-    width: 100%;
-    height: 100%;
-  }
-}
 
-@media (max-width: 900px) {
-  .lineChartTopUp {
-    position: absolute;
-    bottom: 690px;
+  .box-1 {
     width: 100%;
-    height: 100%;
+    height: 50vh;
+    position: relative;
+    /* background-color: orange; */
   }
-}
+  .lineChartTopUp {
+    bottom: -460px;
+  }
+
+  .year-total-container {
+    top: 250px;
+  }
+
+  .setFontSizeOfYear {
+    font-size: 40px;
+    color: grey;
+  }
+
+  .setFontSizeOfTotal {
+    font-size: 15px;
+    color: grey;
+  }
+} 
 
 @media (max-width: 480px) {
 

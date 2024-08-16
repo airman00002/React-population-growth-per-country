@@ -67,7 +67,7 @@ function PopulationGrowthPerCountryChart() {
 
   // 6.Calculate pointer position for the year timeline
   const totalYears = 2021 - 1950;
-  const pointerPosition = ((currentYear - 1950) / totalYears) * 100; // เปลี่ยนเป็นเปอร์เซ็นต์
+  const pointerPosition = ((currentYear - 1950) / totalYears) * 98; // เปลี่ยนเป็นเปอร์เซ็นต์
   
   //* 7.Chart data configuration
   const chartData = {
@@ -121,31 +121,34 @@ function PopulationGrowthPerCountryChart() {
 
   return (
     <div>
-      {/* 1. Year and Total */}
-      <div className="chart-container">
-      <div className="year-total-container">
-                  <h1 className="setFontSizeOfYear">{currentYear}</h1>
-                  <h4 className="setFontSizeOfTotal">
-                    Total: {totalPopulationForYear.toLocaleString("en-US")}
-                  </h4>
-                </div>
-        </div>
-
-      <div style={{ width: "100%", height: "100vh", position: "relative" }}>
-        <div style={{position: "absolute",top: "0%",width: "100%",height: "100%"}}>
-          
+      {/* box 1 */}
+      <div className="box-1">
+          {/* 1. Year and Total */}
+          <div className="year-total-container">
+              <h1 className="setFontSizeOfYear">{currentYear}</h1>
+              <h4 className="setFontSizeOfTotal">
+                Total: {totalPopulationForYear.toLocaleString("en-US")}
+              </h4>
+          </div>
           {/* 2.Bar */}
-            <Bar className="myBarPopulaiton" data={chartData} options={chartOptions}/>
+          <Bar className="myBarPopulaiton" data={chartData} options={chartOptions}/>
       
+      </div>
+
+      {/* box 2 */}
+      <div className="box-2">
+        {/* <div style={{position: "absolute",top: "0%",width: "100%",height: "100%"}}> */}
           {/* 3.Year Pointer */}
           <div className="timeline">
             <div className="pointer" style={{ left: `${pointerPosition}%` }} // กำหนดตำแหน่งของ pointer
             />
           </div>
-        </div>
+        {/* </div> */}
+       
+        <MyLineChart />
+      
       </div>
 
-       <MyLineChart />
     </div>
 
     
